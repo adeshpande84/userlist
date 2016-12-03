@@ -1,7 +1,8 @@
+<h3>User List</h3>
 <div class="userListHeader">
 <span>Search by name: </span>
 <input #userSearchBox id="userSearchBox" (keyup)="search(userSearchBox.value)" />
-<button type="button" class="btn btn-primary pull-right">Add New User</button>
+<button type="button" class="btn btn-primary pull-right" (click)="onClickNewUser()">Add New User</button>
 </div>
 <div class="userList">
 	<table class="table table-striped">
@@ -10,12 +11,18 @@
 	      <th *ngFor="let column of columns" (click)="sortBy(column)">
 	        {{column}}
 	      </th>
+	      <th>
+	      	&nbsp;
+	      </th>
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <tr *ngFor="let user of (users | searchUsers: userSearchTerm | paginate: { itemsPerPage: 5, currentPage: p })">
+	    <tr *ngFor="let user of (users | searchUsers: userSearchTerm | paginate: { itemsPerPage: 5, currentPage: p })" (click)="onSelect(user)">
 	      <td *ngFor="let column of columns">
 	        {{user[column]}}
+	      </td>
+	      <td>
+	      	<button type="button" class="btn btn-primary" (click)="deleteUser(user.id)">Delete</button>
 	      </td>
 	    </tr>
 	  </tbody>
@@ -23,4 +30,3 @@
 	<pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 </div>
-

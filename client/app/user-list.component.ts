@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 import { User } from './user';
@@ -16,7 +17,7 @@ export class UserListComponent implements OnInit {
 	columns: string[];
 	userSearchTerm: string;
 
-	constructor(private http: Http, private userService: UserService) { 
+	constructor(private http: Http, private userService: UserService, private router: Router) { 
 		this.columns = ['id','name','birthday','email','username'];
 	}
 
@@ -36,6 +37,21 @@ export class UserListComponent implements OnInit {
 
 	search(term:string) {
 		this.userSearchTerm = term;
+	}
+
+	onSelect(user: User) {
+		this.router.navigate(['/users', user.id]);
+	}
+
+	deleteUser(id: string) {
+		this.userService.deleteUser(id).subscribe(
+			data => {console.log('Deleted user');
+			this.router.navigate(['/users']);}
+		);
+	}
+
+	onClickNewUser() {
+		this.router.navigate(['/users/new']);}
 	}
 	
 }
