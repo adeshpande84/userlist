@@ -4,6 +4,7 @@ import { Http, Response } from '@angular/http';
 import { User } from './user';
 import 'rxjs/add/operator/map';
 import {UserSearchPipe} from "./user-search-pipe";
+import { UserService } from './user.service';
 
 @Component({
   selector: 'user-list',
@@ -15,7 +16,7 @@ export class UserListComponent implements OnInit {
 	columns: string[];
 	userSearchTerm: string;
 
-	constructor(private http: Http) { 
+	constructor(private http: Http, private userService: UserService) { 
 		this.columns = ['id','name','birthday','email','username'];
 	}
 
@@ -25,9 +26,12 @@ export class UserListComponent implements OnInit {
 	}
 
 	getUsers() {
-		this.http.get('app/mock-data/data.json').map(res => res.json()).subscribe(
-			data => {this.users = data.users;}
+		this.userService.getUsers().subscribe(
+			data => {this.users = data;}
 		);	
+		/*this.http.get('app/mock-data/data.json').map(res => res.json()).subscribe(
+			data => {this.users = data.users;}
+		);*/	
 	}
 
 	search(term:string) {

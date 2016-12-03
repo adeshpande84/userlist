@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import {UserSearchPipe} from "./user-search-pipe";
 import {Ng2PaginationModule} from 'ng2-pagination';
 import { RouterModule, Routes } from '@angular/router';
+import { UserService } from './user.service';
+
 //import { UserDetailComponent } from './user-detail.component';
 
 /*const appRoutes: Routes = [
@@ -17,6 +19,6 @@ import { RouterModule, Routes } from '@angular/router';
   imports:      [ BrowserModule,HttpModule, Ng2PaginationModule ],
   declarations: [ AppComponent, UserListComponent,UserSearchPipe ],
   bootstrap:    [ AppComponent ],
-  providers: [ HttpModule ]
+  providers: [ HttpModule, UserService ]
 })
 export class AppModule { }
