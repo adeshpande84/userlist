@@ -1,5 +1,7 @@
+
+<input #userSearchBox id="userSearchBox" (keyup)="search(userSearchBox.value)" />
 <ul class="users">
-    <li *ngFor="let user of users">
+    <li *ngFor="let user of (users | searchUsers: userSearchTerm)">
       <span>{{user.name}}</span>
     </li>
 </ul>
