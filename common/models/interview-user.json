@@ -1,6 +1,6 @@
 {
   "name": "InterviewUser",
-  "plural": "users",
+  "plural": "iUsers",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,30 +11,25 @@
       "type": "number"
     },
     "email": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "favoriteColor": {
       "type": "string"
     },
     "id": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "image": {
       "type": "string"
     },
     "joinDate": {
-      "type": "number",
-      "required": true
+      "type": "number"
     },
     "name": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "username": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],
