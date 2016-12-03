@@ -6,7 +6,7 @@ Backend framework: Loopback
 
 Database: MongoDB
 
-#H3 To run the application on your local environment:
+### To run the application on your local environment:
 
 1. Install MongoDB
 2. Clone the repository into a folder on your local environment 
