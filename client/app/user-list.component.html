@@ -1,7 +1,18 @@
 
 <input #userSearchBox id="userSearchBox" (keyup)="search(userSearchBox.value)" />
-<ul class="users">
-    <li *ngFor="let user of (users | searchUsers: userSearchTerm)">
-      <span>{{user.name}}</span>
-    </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let column of columns" (click)="sortBy(column)">
+        {{column}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of (users | searchUsers: userSearchTerm)">
+      <td *ngFor="let column of columns">
+        {{user[column]}}
+      </td>
+    </tr>
+  </tbody>
+</table>

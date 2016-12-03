@@ -12,10 +12,11 @@ import {UserSearchPipe} from "./user-search-pipe";
 
 export class UserListComponent implements OnInit {
 	users: User[];
+	columns: string[];
 	userSearchTerm: string;
 
 	constructor(private http: Http) { 
-
+		this.columns = ['id','name','birthday','email','username'];
 	}
 
 	ngOnInit(): void {
