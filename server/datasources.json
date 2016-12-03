@@ -1,0 +1,18 @@
+{
+  "user": {
+    "name": "user",
+    "localStorage": "",
+    "file": "",
+    "connector": "memory"
+  },
+  "userlist": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "local",
+    "password": "",
+    "name": "userlist",
+    "user": "",
+    "connector": "mongodb"
+  }
+}
